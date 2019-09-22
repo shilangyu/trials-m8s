@@ -23,17 +23,25 @@ const Table: FunctionComponent<Props> = observer(({ rows }) => {
 		Object.entries(sub).every(([key, val]) => (validate as any)[key](val))
 	)
 
+	const okColumns = Object.keys(Title).reduce((prev, curr, i) => {
+		;(store.showColumns as any)[curr] && prev.push(i)
+		return prev
+	}, [])
+
 	return (
 		<table className="striped highlight centered">
 			<thead>
 				<tr>
-					{Object.entries(Title).map(([_, title]) => (
-						<th>{title}</th>
-					))}
+					{Object.entries(Title)
+						.filter((_, i) => okColumns.includes(i))
+						.map(([_, title]) => (
+							<th>{title}</th>
+						))}
 				</tr>
 			</thead>
 			<tbody>
 				{submissions
+
 					.filter(sub =>
 						String(sub[store.searchContext])
 							.toLowerCase()
@@ -41,9 +49,11 @@ const Table: FunctionComponent<Props> = observer(({ rows }) => {
 					)
 					.map(sub => (
 						<tr>
-							{Object.values(sub).map(val => (
-								<td>{val}</td>
-							))}
+							{Object.values(sub)
+								.filter((_, i) => okColumns.includes(i))
+								.map(val => (
+									<td>{val}</td>
+								))}
 						</tr>
 					))}
 			</tbody>
