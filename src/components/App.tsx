@@ -1,7 +1,7 @@
 import { FunctionComponent, h } from 'preact'
 import { useEffect, useState } from 'preact/hooks'
-import { store } from '../store'
 import { CSVToArray } from '../util'
+import Filters from './Filters'
 import Table from './Table'
 
 interface Props {}
@@ -22,17 +22,7 @@ const App: FunctionComponent<Props> = () => {
 	return (
 		<div className="col container">
 			<div className="row">
-				<div class="input-field col s12">
-					<input
-						name="search"
-						type="search"
-						onKeyUp={({ target }) =>
-							(store.searchTerm = (target as HTMLInputElement).value)
-						}
-						value={store.searchTerm}
-					/>
-					<label for="search">Search</label>
-				</div>
+				<Filters />
 			</div>
 			<div className="row">
 				<Table headers={csv[0]} rows={csv.slice(1)} />
