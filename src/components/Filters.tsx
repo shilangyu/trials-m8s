@@ -38,7 +38,7 @@ const Filters: FunctionComponent<Props> = () => {
 			</div>
 			<div className="row">
 				{headers.map(e => (
-					<label class="col s2">
+					<label class="col s4 m2">
 						<input
 							type="checkbox"
 							checked={store.showColumns[e]}
