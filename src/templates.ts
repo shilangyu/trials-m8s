@@ -21,7 +21,17 @@ export const embed = (
 	return cumm
 }
 
-export const table = (headers: string[], rows: string[][]) => embed`
+export const htmlToElement = (html: string) => {
+	const ele = document.createElement('div')
+	ele.innerHTML = html
+	return ele
+}
+
+export const render = (where: HTMLElement, what: HTMLElement) =>
+	where.appendChild(what)
+
+export const table = (headers: string[], rows: string[][]) =>
+	htmlToElement(embed`
 	<table>
 		<thead>
     	<tr>
@@ -38,4 +48,4 @@ export const table = (headers: string[], rows: string[][]) => embed`
 			)}
   	</tbody>
 	</table>
-`
+`)

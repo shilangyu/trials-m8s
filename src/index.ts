@@ -1,4 +1,4 @@
-import { table } from './templates'
+import { render, table } from './templates'
 import { CSVToArray } from './util'
 
 const getSubmissions = async () => {
@@ -10,6 +10,6 @@ const getSubmissions = async () => {
 
 async function main() {
 	const csv = await getSubmissions()
-	document.body.innerHTML = table(csv[0], csv.slice(1))
+	render(document.getElementById('root'), table(csv[0], csv.slice(1)))
 }
 main()
