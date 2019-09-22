@@ -9,3 +9,7 @@ declare interface ISubmission {
 	contactInfo: string
 	extraInfo: string
 }
+
+declare const M: {
+	AutoInit: () => void
+}
