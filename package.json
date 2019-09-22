@@ -5,7 +5,8 @@
 	"main": "index.js",
 	"scripts": {
 		"start": "concurrently \"webpack --watch --mode development\" \"live-server public\"",
-		"build": "webpack"
+		"build": "webpack",
+		"analyze": "webpack --profile --json > stats.json && webpack-bundle-analyzer stats.json"
 	},
 	"keywords": [],
 	"author": "",
@@ -21,6 +22,7 @@
 		"ts-node": "^8.4.1",
 		"typescript": "^3.6.3",
 		"webpack": "^4.40.2",
+		"webpack-bundle-analyzer": "^3.5.1",
 		"webpack-cli": "^3.3.9"
 	},
 	"dependencies": {
