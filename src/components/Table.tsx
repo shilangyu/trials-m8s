@@ -17,15 +17,16 @@ const Table: FunctionComponent<Props> = ({ headers, rows, filter }) => (
 			</tr>
 		</thead>
 		<tbody>
-			{rows
-				.filter(row => row[2].includes(filter))
-				.map(row => (
-					<tr>
-						{row.map(column => (
-							<td style={outline}>{column}</td>
-						))}
-					</tr>
-				))}
+			{rows[0].length > 0 &&
+				rows
+					.filter(row => row[2].includes(filter))
+					.map(row => (
+						<tr>
+							{row.map(column => (
+								<td style={outline}>{column}</td>
+							))}
+						</tr>
+					))}
 		</tbody>
 	</table>
 )
