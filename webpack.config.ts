@@ -2,7 +2,7 @@ import { resolve } from 'path'
 import { Configuration } from 'webpack'
 
 const config: Configuration = {
-	entry: './src/index.ts',
+	entry: './src/index.tsx',
 	module: {
 		rules: [
 			{
@@ -13,7 +13,7 @@ const config: Configuration = {
 		]
 	},
 	resolve: {
-		extensions: ['.ts', '.js']
+		extensions: ['.ts', '.js', '.tsx']
 	},
 	output: {
 		filename: 'bundle.js',
