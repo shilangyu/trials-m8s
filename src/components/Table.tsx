@@ -18,7 +18,7 @@ const Table: FunctionComponent<Props> = ({ headers, rows, filter }) => (
 		<tbody>
 			{rows[0].length > 0 &&
 				rows
-					.filter(row => row[2].includes(filter))
+					.filter(row => row[2].toLowerCase().includes(filter.toLowerCase()))
 					.map(row => (
 						<tr>
 							{row.map(column => (
