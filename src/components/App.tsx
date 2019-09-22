@@ -1,5 +1,6 @@
 import { FunctionComponent, h } from 'preact'
 import { useEffect, useState } from 'preact/hooks'
+import { store } from '../store'
 import { CSVToArray } from '../util'
 import Table from './Table'
 
@@ -7,7 +8,6 @@ interface Props {}
 
 const App: FunctionComponent<Props> = () => {
 	const [csv, setCsv] = useState<string[][]>([[]])
-	const [searchTerm, setSearchTerm] = useState('')
 
 	useEffect(() => {
 		fetch(
@@ -25,15 +25,15 @@ const App: FunctionComponent<Props> = () => {
 						name="search"
 						type="search"
 						onKeyUp={({ target }) =>
-							setSearchTerm((target as HTMLInputElement).value)
+							(store.searchTerm = (target as HTMLInputElement).value)
 						}
-						value={searchTerm}
+						value={store.searchTerm}
 					/>
 					<label for="search">Search</label>
 				</div>
 			</div>
 			<div className="row">
-				<Table headers={csv[0]} rows={csv.slice(1)} filter={searchTerm} />
+				<Table headers={csv[0]} rows={csv.slice(1)} />
 			</div>
 		</div>
 	)

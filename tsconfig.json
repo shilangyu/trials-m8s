@@ -5,7 +5,8 @@
 		"target": "es5",
 		"esModuleInterop": true,
 		"jsx": "react",
-		"jsxFactory": "h"
+		"jsxFactory": "h",
+		"experimentalDecorators": true
 	},
 	"exclude": ["webpack.config.ts"]
 }

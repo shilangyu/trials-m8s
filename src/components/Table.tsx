@@ -1,8 +1,9 @@
+import { observer } from 'mobx-preact'
 import { FunctionComponent, h } from 'preact'
+import { store } from '../store'
 import { arrayToSubmissions } from '../util'
 
 interface Props {
-	filter: string
 	headers: string[]
 	rows: string[][]
 }
@@ -18,7 +19,7 @@ const validate: {
 	extraInfo: () => true
 }
 
-const Table: FunctionComponent<Props> = ({ headers, rows, filter }) => {
+const Table: FunctionComponent<Props> = observer(({ headers, rows }) => {
 	const submissions = arrayToSubmissions(rows).filter(sub =>
 		Object.entries(sub).every(([key, val]) => (validate as any)[key](val))
 	)
@@ -35,7 +36,7 @@ const Table: FunctionComponent<Props> = ({ headers, rows, filter }) => {
 			<tbody>
 				{submissions
 					.filter(sub =>
-						sub.riderName.toLowerCase().includes(filter.toLowerCase())
+						sub.riderName.toLowerCase().includes(store.searchTerm.toLowerCase())
 					)
 					.map(sub => (
 						<tr>
@@ -47,6 +48,6 @@ const Table: FunctionComponent<Props> = ({ headers, rows, filter }) => {
 			</tbody>
 		</table>
 	)
-}
+})
 
 export default Table

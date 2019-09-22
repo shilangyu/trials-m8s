@@ -1,5 +1,7 @@
 dependencies:
   materialize-css: 1.0.0
+  mobx: 5.13.0
+  mobx-preact: 3.0.0_mobx@5.13.0+preact@10.0.0-rc.3
   preact: 10.0.0-rc.3
 devDependencies:
   '@types/node': 12.7.5
@@ -1584,6 +1586,10 @@ packages:
     dev: true
     resolution:
       integrity: sha1-0nRXAQJabHdabFRXk+1QL8DGSaE=
+  /hoist-non-react-statics/2.5.5:
+    dev: false
+    resolution:
+      integrity: sha512-rqcy4pJo55FTTLWt+bU8ukscqHeE/e9KWvsOW2b/a3afxQZhwkQdT1rPPCJ0rYXdj4vNcasY8zHTH+jF/qStxw==
   /homedir-polyfill/1.0.3:
     dependencies:
       parse-passwd: 1.0.0
@@ -2239,6 +2245,21 @@ packages:
     hasBin: true
     resolution:
       integrity: sha1-MAV0OOrGz3+MR2fzhkjWaX11yQM=
+  /mobx-preact/3.0.0_mobx@5.13.0+preact@10.0.0-rc.3:
+    dependencies:
+      hoist-non-react-statics: 2.5.5
+      mobx: 5.13.0
+      preact: 10.0.0-rc.3
+    dev: false
+    peerDependencies:
+      mobx: 5.x
+      preact: '>=8'
+    resolution:
+      integrity: sha1-aD8YBeRydXDI7OFWGiXzR3O3tgE=
+  /mobx/5.13.0:
+    dev: false
+    resolution:
+      integrity: sha512-eSAntMSMNj0PFL705rgv+aB/z1RjNqDnFEpBe18yQVreXTWiVgIrmBUXzjnJfuba+eo4eAk6zi+/gXQkSUea8A==
   /morgan/1.9.1:
     dependencies:
       basic-auth: 2.0.1
@@ -3896,6 +3917,8 @@ specifiers:
   css-loader: ^3.2.0
   live-server: ^1.2.1
   materialize-css: ^1.0.0
+  mobx: ^5.13.0
+  mobx-preact: ^3.0.0
   preact: 10.0.0-rc.3
   style-loader: ^1.0.0
   ts-loader: ^6.1.2
