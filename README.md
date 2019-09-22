@@ -1,3 +1,3 @@
-# trails-m8s
+# trials-m8s
 
-Displays submissions for trails-m8s
+Displays submissions for trials-m8s
