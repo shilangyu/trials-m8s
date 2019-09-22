@@ -18,16 +18,23 @@ const App: FunctionComponent<Props> = () => {
 	}, [])
 
 	return (
-		<div>
-			<input
-				type="search"
-				placeholder="search..."
-				onKeyUp={({ target }) =>
-					setSearchTerm((target as HTMLInputElement).value)
-				}
-				value={searchTerm}
-			/>
-			<Table headers={csv[0]} rows={csv.slice(1)} filter={searchTerm} />
+		<div className="col container">
+			<div className="row">
+				<div class="input-field col s12">
+					<input
+						name="search"
+						type="search"
+						onKeyUp={({ target }) =>
+							setSearchTerm((target as HTMLInputElement).value)
+						}
+						value={searchTerm}
+					/>
+					<label for="search">Search</label>
+				</div>
+			</div>
+			<div className="row">
+				<Table headers={csv[0]} rows={csv.slice(1)} filter={searchTerm} />
+			</div>
 		</div>
 	)
 }
