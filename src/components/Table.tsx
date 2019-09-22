@@ -1,10 +1,9 @@
 import { observer } from 'mobx-preact'
 import { FunctionComponent, h } from 'preact'
-import { store } from '../store'
+import { store, Title } from '../store'
 import { arrayToSubmissions } from '../util'
 
 interface Props {
-	headers: string[]
 	rows: string[][]
 }
 
@@ -19,7 +18,7 @@ const validate: {
 	extraInfo: () => true
 }
 
-const Table: FunctionComponent<Props> = observer(({ headers, rows }) => {
+const Table: FunctionComponent<Props> = observer(({ rows }) => {
 	const submissions = arrayToSubmissions(rows).filter(sub =>
 		Object.entries(sub).every(([key, val]) => (validate as any)[key](val))
 	)
@@ -28,8 +27,8 @@ const Table: FunctionComponent<Props> = observer(({ headers, rows }) => {
 		<table className="striped highlight centered">
 			<thead>
 				<tr>
-					{headers.map(text => (
-						<th>{text}</th>
+					{Object.entries(Title).map(([_, title]) => (
+						<th>{title}</th>
 					))}
 				</tr>
 			</thead>

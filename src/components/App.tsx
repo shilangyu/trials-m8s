@@ -25,7 +25,7 @@ const App: FunctionComponent<Props> = () => {
 				<Filters />
 			</div>
 			<div className="row">
-				<Table headers={csv[0]} rows={csv.slice(1)} />
+				<Table rows={csv.slice(1)} />
 			</div>
 		</div>
 	)
