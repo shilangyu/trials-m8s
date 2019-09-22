@@ -6,7 +6,7 @@ import Table from './Table'
 interface Props {}
 
 const App: FunctionComponent<Props> = () => {
-	const [csv, setCsv] = useState([[], []])
+	const [csv, setCsv] = useState<string[][]>([[]])
 	const [searchTerm, setSearchTerm] = useState('')
 
 	useEffect(() => {
