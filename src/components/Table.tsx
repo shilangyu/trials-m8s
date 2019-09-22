@@ -1,4 +1,5 @@
 import { FunctionComponent, h } from 'preact'
+import { arrayToSubmissions } from '../util'
 
 interface Props {
 	filter: string
@@ -6,7 +7,10 @@ interface Props {
 	rows: string[][]
 }
 
-const Table: FunctionComponent<Props> = ({ headers, rows, filter }) => (
+const Table: FunctionComponent<Props> = ({ headers, rows, filter }) => {
+	const submissions = arrayToSubmissions(rows)
+
+	return (
 	<table className="striped highlight centered">
 		<thead>
 			<tr>
@@ -16,18 +20,20 @@ const Table: FunctionComponent<Props> = ({ headers, rows, filter }) => (
 			</tr>
 		</thead>
 		<tbody>
-			{rows[0].length > 0 &&
-				rows
-					.filter(row => row[2].toLowerCase().includes(filter.toLowerCase()))
-					.map(row => (
+				{submissions
+					.filter(sub =>
+						sub.riderName.toLowerCase().includes(filter.toLowerCase())
+					)
+					.map(sub => (
 						<tr>
-							{row.map(column => (
-								<td>{column}</td>
+							{Object.values(sub).map(val => (
+								<td>{val}</td>
 							))}
 						</tr>
 					))}
 		</tbody>
 	</table>
 )
+}
 
 export default Table
