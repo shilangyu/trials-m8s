@@ -2,13 +2,7 @@ export const CSVToArray = (data: string) => {
 	const strDelimiter = ','
 
 	const objPattern = new RegExp(
-		'(\\' +
-			strDelimiter +
-			'|\\r?\\n|\\r|^)' +
-			'(?:"([^"]*(?:""[^"]*)*)"|' +
-			'([^"\\' +
-			strDelimiter +
-			'\\r\\n]*))',
+		`(\\${strDelimiter}|\\r?\\n|\\r|^)(?:"([^"]*(?:""[^"]*)*)"|([^"\\${strDelimiter}\\r\\n]*))`,
 		'gi'
 	)
 
