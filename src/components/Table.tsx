@@ -1,4 +1,5 @@
 import { FunctionComponent, h } from 'preact'
+import { outline } from '../styles/basic'
 
 interface Props {
 	filter: string
@@ -7,11 +8,11 @@ interface Props {
 }
 
 const Table: FunctionComponent<Props> = ({ headers, rows, filter }) => (
-	<table>
+	<table style={outline}>
 		<thead>
 			<tr>
 				{headers.map(text => (
-					<td>{text}</td>
+					<td style={outline}>{text}</td>
 				))}
 			</tr>
 		</thead>
@@ -21,7 +22,7 @@ const Table: FunctionComponent<Props> = ({ headers, rows, filter }) => (
 				.map(row => (
 					<tr>
 						{row.map(column => (
-							<td>{column}</td>
+							<td style={outline}>{column}</td>
 						))}
 					</tr>
 				))}
