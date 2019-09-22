@@ -4,6 +4,7 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
+		"start": "concurrently \"webpack --watch --mode development\" \"live-server public\"",
 		"build": "webpack"
 	},
 	"keywords": [],
@@ -12,6 +13,8 @@
 	"devDependencies": {
 		"@types/node": "^12.7.5",
 		"@types/webpack": "^4.39.1",
+		"concurrently": "^4.1.2",
+		"live-server": "^1.2.1",
 		"ts-loader": "^6.1.2",
 		"ts-node": "^8.4.1",
 		"typescript": "^3.6.3",
