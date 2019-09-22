@@ -1,5 +1,5 @@
 declare type UnixTimestamp = number
-declare type Platform = 'android' | 'iOS'
+declare type Platform = 'Android' | 'iOS'
 
 declare interface ISubmission {
 	timestamp: UnixTimestamp

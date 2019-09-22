@@ -7,19 +7,32 @@ interface Props {
 	rows: string[][]
 }
 
+const validate: {
+	[key in keyof ISubmission]: (val: ISubmission[key]) => boolean
+} = {
+	timestamp: () => true,
+	platform: val => val === 'Android' || val === 'iOS',
+	riderName: val => /^\S+$/.test(val),
+	riderLevel: val => val > 0 && val <= 75,
+	contactInfo: () => true,
+	extraInfo: () => true
+}
+
 const Table: FunctionComponent<Props> = ({ headers, rows, filter }) => {
-	const submissions = arrayToSubmissions(rows)
+	const submissions = arrayToSubmissions(rows).filter(sub =>
+		Object.entries(sub).every(([key, val]) => (validate as any)[key](val))
+	)
 
 	return (
-	<table className="striped highlight centered">
-		<thead>
-			<tr>
-				{headers.map(text => (
-					<th>{text}</th>
-				))}
-			</tr>
-		</thead>
-		<tbody>
+		<table className="striped highlight centered">
+			<thead>
+				<tr>
+					{headers.map(text => (
+						<th>{text}</th>
+					))}
+				</tr>
+			</thead>
+			<tbody>
 				{submissions
 					.filter(sub =>
 						sub.riderName.toLowerCase().includes(filter.toLowerCase())
@@ -31,9 +44,9 @@ const Table: FunctionComponent<Props> = ({ headers, rows, filter }) => {
 							))}
 						</tr>
 					))}
-		</tbody>
-	</table>
-)
+			</tbody>
+		</table>
+	)
 }
 
 export default Table
