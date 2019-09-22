@@ -36,7 +36,9 @@ const Table: FunctionComponent<Props> = observer(({ headers, rows }) => {
 			<tbody>
 				{submissions
 					.filter(sub =>
-						sub.riderName.toLowerCase().includes(store.searchTerm.toLowerCase())
+						String(sub[store.searchContext])
+							.toLowerCase()
+							.includes(store.searchTerm.toLowerCase())
 					)
 					.map(sub => (
 						<tr>

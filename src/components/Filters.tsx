@@ -27,13 +27,14 @@ const Filters: FunctionComponent<Props> = () => {
 				<label for="search">Search</label>
 			</div>
 			<div class="input-field col s4">
-				<select>
+				<select
+					onChange={({ target }) =>
+						(store.searchContext = (target as HTMLSelectElement)
+							.value as keyof ISubmission)
+					}
+				>
 					{headers.map(e => (
-						<option
-							value={e}
-							selected={e === store.searchContext}
-							onClick={() => (store.searchContext = e)}
-						>
+						<option value={e} selected={e === store.searchContext}>
 							{e}
 						</option>
 					))}
