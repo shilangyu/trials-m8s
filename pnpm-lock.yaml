@@ -1,4 +1,7 @@
+dependencies:
+  escape-html: 1.0.3
 devDependencies:
+  '@types/escape-html': 0.0.20
   '@types/node': 12.7.5
   '@types/webpack': 4.39.1
   concurrently: 4.1.2
@@ -14,6 +17,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-/+CRPXpBDpo2RK9C68N3b2cOvO0Cf5B9aPijHsoDQTHivnGSObdOF2BRQOYjojWTDy6nQvMjmqRXIxH55VjxxA==
+  /@types/escape-html/0.0.20:
+    dev: true
+    resolution:
+      integrity: sha512-6dhZJLbA7aOwkYB2GDGdIqJ20wmHnkDzaxV9PJXe7O02I2dSFTERzRB6JrX6cWKaS+VqhhY7cQUMCbO5kloFUw==
   /@types/node/12.7.5:
     dev: true
     resolution:
@@ -976,7 +983,6 @@ packages:
     resolution:
       integrity: sha512-7dFHNmqeFSEt2ZBsCriorKnn3Z2pj+fd9kmI6QoWw4//DL+icEBfc0U7qJCisqrTsKTjw4fNFy2pW9OqStD84g==
   /escape-html/1.0.3:
-    dev: true
     resolution:
       integrity: sha1-Aljq5NPQwJdN4cFpGI7wBR0dGYg=
   /escape-string-regexp/1.0.5:
@@ -3472,9 +3478,11 @@ packages:
     resolution:
       integrity: sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==
 specifiers:
+  '@types/escape-html': ^0.0.20
   '@types/node': ^12.7.5
   '@types/webpack': ^4.39.1
   concurrently: ^4.1.2
+  escape-html: ^1.0.3
   live-server: ^1.2.1
   ts-loader: ^6.1.2
   ts-node: ^8.4.1
