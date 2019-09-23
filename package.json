@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"start": "concurrently \"webpack --watch --mode development\" \"live-server public\"",
+		"start": "concurrently \"webpack --watch --mode development\" \"live-server dist\"",
 		"build": "webpack",
 		"analyze": "webpack --profile --json > stats.json && webpack-bundle-analyzer stats.json"
 	},
@@ -12,11 +12,14 @@
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
+		"@types/html-webpack-plugin": "^3.2.1",
 		"@types/node": "^12.7.5",
 		"@types/webpack": "^4.39.1",
 		"@types/workbox-webpack-plugin": "^4.1.0",
+		"clean-webpack-plugin": "^3.0.0",
 		"concurrently": "^4.1.2",
 		"css-loader": "^3.2.0",
+		"html-webpack-plugin": "^3.2.0",
 		"live-server": "^1.2.1",
 		"style-loader": "^1.0.0",
 		"ts-loader": "^6.1.2",

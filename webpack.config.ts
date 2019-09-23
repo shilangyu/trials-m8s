@@ -1,3 +1,5 @@
+import { CleanWebpackPlugin } from 'clean-webpack-plugin'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
 import { resolve } from 'path'
 import { Configuration } from 'webpack'
 import { GenerateSW } from 'workbox-webpack-plugin'
@@ -22,9 +24,22 @@ const config: Configuration = {
 	},
 	output: {
 		filename: 'bundle.js',
-		path: resolve(__dirname, 'public')
+		path: resolve(__dirname, 'dist')
 	},
 	plugins: [
+		new CleanWebpackPlugin(),
+		new HtmlWebpackPlugin({
+			favicon: 'public/favicon.ico',
+			template: 'public/index.html',
+			minify: {
+				collapseWhitespace: true,
+				removeComments: true,
+				removeRedundantAttributes: true,
+				removeScriptTypeAttributes: true,
+				removeStyleLinkTypeAttributes: true,
+				useShortDoctype: true
+			}
+		}),
 		new GenerateSW({
 			clientsClaim: true,
 			skipWaiting: true
