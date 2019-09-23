@@ -4,12 +4,14 @@ dependencies:
   mobx-preact: 3.0.0_mobx@5.13.0+preact@10.0.0-rc.3
   preact: 10.0.0-rc.3
 devDependencies:
+  '@types/copy-webpack-plugin': 5.0.0
   '@types/html-webpack-plugin': 3.2.1
   '@types/node': 12.7.5
   '@types/webpack': 4.39.1
   '@types/workbox-webpack-plugin': 4.1.0
   clean-webpack-plugin: 3.0.0_webpack@4.40.2
   concurrently: 4.1.2
+  copy-webpack-plugin: 5.0.4_webpack@4.40.2
   css-loader: 3.2.0_webpack@4.40.2
   html-webpack-plugin: 3.2.0_webpack@4.40.2
   live-server: 1.2.1
@@ -66,6 +68,14 @@ packages:
     dev: true
     resolution:
       integrity: sha512-A1HQhQ0hkvqqByJMgg+Wiv9p9XdoYEzuwm11SVo1mX2/4PSdhjcrUlilJQoqLscIheC51t1D5g+EFWCXZ2VTQQ==
+  /@types/copy-webpack-plugin/5.0.0:
+    dependencies:
+      '@types/minimatch': 3.0.3
+      '@types/node': 12.7.5
+      '@types/webpack': 4.39.1
+    dev: true
+    resolution:
+      integrity: sha512-yQHocgdgES7W5Q2UyxJ5cj/E6MrV1zq3MZ8jdApS9NJKqax+rux9IE3QAbBmNCGbgivEsejrkIq3Rm76JLubkg==
   /@types/events/3.0.0:
     dev: true
     resolution:
@@ -326,6 +336,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-TXtUUEYHuaTEbLZWIKUr5pmBuhDLy+8KYtPYdcV8qC+pOZL+NKqYwvWSRrVXHn+ZmRRAu8vJTAznH7Oag6RVRw==
+  /ansi-colors/3.2.4:
+    dev: true
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-hHUXGagefjN2iRrID63xckIvotOXOojhQKWIPUZ4mNUZ9nLZW+7FMNoE1lOkEhNWYsx/7ysGIuJYCiMAA9FnrA==
   /ansi-regex/2.1.1:
     dev: true
     engines:
@@ -697,6 +713,25 @@ packages:
       node: '>= 0.8'
     resolution:
       integrity: sha512-zauLjrfCG+xvoyaqLoV8bLVXXNGC4JqlxFCutSDWA6fJrTo2ZuvLYTqZ7aHBLZSMOopbzwv8f+wZcVzfVTI2Dg==
+  /cacache/11.3.3:
+    dependencies:
+      bluebird: 3.5.5
+      chownr: 1.1.2
+      figgy-pudding: 3.5.1
+      glob: 7.1.4
+      graceful-fs: 4.2.2
+      lru-cache: 5.1.1
+      mississippi: 3.0.0
+      mkdirp: 0.5.1
+      move-concurrently: 1.0.1
+      promise-inflight: 1.0.1
+      rimraf: 2.7.1
+      ssri: 6.0.1
+      unique-filename: 1.1.1
+      y18n: 4.0.0
+    dev: true
+    resolution:
+      integrity: sha512-p8WcneCytvzPxhDvYp31PD039vi77I12W+/KfR9S8AZbaiARFBCpsPJS+9uhWfeBfeAtW7o/4vt3MUqLkbY6nA==
   /cacache/12.0.3:
     dependencies:
       bluebird: 3.5.5
@@ -995,6 +1030,28 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=
+  /copy-webpack-plugin/5.0.4_webpack@4.40.2:
+    dependencies:
+      cacache: 11.3.3
+      find-cache-dir: 2.1.0
+      glob-parent: 3.1.0
+      globby: 7.1.1
+      is-glob: 4.0.1
+      loader-utils: 1.2.3
+      minimatch: 3.0.4
+      normalize-path: 3.0.0
+      p-limit: 2.2.1
+      schema-utils: 1.0.0
+      serialize-javascript: 1.9.1
+      webpack: 4.40.2_webpack@4.40.2
+      webpack-log: 2.0.0
+    dev: true
+    engines:
+      node: '>= 6.9.0'
+    peerDependencies:
+      webpack: ^4.0.0
+    resolution:
+      integrity: sha512-YBuYGpSzoCHSSDGyHy6VJ7SHojKp6WHT4D7ItcQFNAYx2hrwkMe56e97xfVR0/ovDuMTrMffXUiltvQljtAGeg==
   /core-js/2.6.9:
     dev: true
     requiresBuild: true
@@ -1225,6 +1282,14 @@ packages:
     dev: true
     resolution:
       integrity: sha512-kqag/Nl+f3GwyK25fhUMYj81BUOrZ9IuJsjIcDE5icNM9FJHAVm3VcUDxdLPoQtTuUylWm6ZIknYJwwaPxsUzg==
+  /dir-glob/2.2.2:
+    dependencies:
+      path-type: 3.0.0
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha512-f9LBi5QWzIW3I6e//uxZoLBlUt9kcp66qo0sSCxL6YZKc75R1c4MFCoe/LaZiBGmgujvQdxc5Bn3QhfyvK5Hsw==
   /dom-converter/0.2.0:
     dependencies:
       utila: 0.4.0
@@ -1824,6 +1889,19 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha1-9abXDoOV4hyFj7BInWTfAkJNUGw=
+  /globby/7.1.1:
+    dependencies:
+      array-union: 1.0.2
+      dir-glob: 2.2.2
+      glob: 7.1.4
+      ignore: 3.3.10
+      pify: 3.0.0
+      slash: 1.0.0
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha1-+yzP+UAfhgCUXfral0QMypcrhoA=
   /graceful-fs/4.2.2:
     dev: true
     resolution:
@@ -2070,6 +2148,10 @@ packages:
     dev: true
     resolution:
       integrity: sha1-xg7taebY/bazEEofy8ocGS3FtQE=
+  /ignore/3.3.10:
+    dev: true
+    resolution:
+      integrity: sha512-Pgs951kaMm5GXP7MOvxERINe3gsaVjUWFm+UZPSq9xYriQAksyhg0csnS0KXSNRD5NmNdapXEpjxG49+AKh/ug==
   /import-local/2.0.0:
     dependencies:
       pkg-dir: 3.0.0
@@ -3141,6 +3223,14 @@ packages:
     dev: true
     resolution:
       integrity: sha1-32BBeABfUi8V60SQ5yR6G/qmf4w=
+  /path-type/3.0.0:
+    dependencies:
+      pify: 3.0.0
+    dev: true
+    engines:
+      node: '>=4'
+    resolution:
+      integrity: sha512-T2ZUsdZFHgA3u4e5PfPbjd7HDDpxPnQb5jN0SrDsjNSuVXHJqtwTnWqG0B1jZrgmJ/7lj1EmVIByWt1gxGkWvg==
   /pause-stream/0.0.11:
     dependencies:
       through: 2.3.8
@@ -3737,6 +3827,12 @@ packages:
     dev: true
     resolution:
       integrity: sha1-tf3AjxKH6hF4Yo5BXiUTK3NkbG0=
+  /slash/1.0.0:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    resolution:
+      integrity: sha1-xB8vbDn8FtHNF61LXYlhFK5HDVU=
   /snapdragon-node/2.1.1:
     dependencies:
       define-property: 1.0.0
@@ -4424,6 +4520,15 @@ packages:
       webpack: 4.x.x
     resolution:
       integrity: sha512-xwnSxWl8nZtBl/AFJCOn9pG7s5CYUYdZxmmukv+fAHLcBIHM36dImfpQg3WfShZXeArkWlf6QRw24Klcsv8a5A==
+  /webpack-log/2.0.0:
+    dependencies:
+      ansi-colors: 3.2.4
+      uuid: 3.3.3
+    dev: true
+    engines:
+      node: '>= 6'
+    resolution:
+      integrity: sha512-cX8G2vR/85UYG59FgkoMamwHUIkSSlV3bBMRsbxVXVUk2j6NleCKjQ/WE9eYg9WY4w25O9w8wKP4rzNZFmUcUg==
   /webpack-sources/1.4.3:
     dependencies:
       source-list-map: 2.0.1
@@ -4720,12 +4825,14 @@ packages:
     resolution:
       integrity: sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==
 specifiers:
+  '@types/copy-webpack-plugin': ^5.0.0
   '@types/html-webpack-plugin': ^3.2.1
   '@types/node': ^12.7.5
   '@types/webpack': ^4.39.1
   '@types/workbox-webpack-plugin': ^4.1.0
   clean-webpack-plugin: ^3.0.0
   concurrently: ^4.1.2
+  copy-webpack-plugin: ^5.0.4
   css-loader: ^3.2.0
   html-webpack-plugin: ^3.2.0
   live-server: ^1.2.1

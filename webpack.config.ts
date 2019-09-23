@@ -1,4 +1,5 @@
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
+import CopyWebpackPlugin from 'copy-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import { resolve } from 'path'
 import { Configuration } from 'webpack'
@@ -41,10 +42,14 @@ const config: Configuration = {
 			}
 		}),
 		new GenerateSW({
-			include: [/\.js$/, /\.html/, 'favicon.ico'],
+			include: [/\.js$/, /\.html$/, 'favicon.ico'],
 			clientsClaim: true,
 			skipWaiting: true
-		})
+		}),
+		new CopyWebpackPlugin(
+			['public/manifest.json', 'public/icon-192.png', 'public/icon-512.png'],
+			{ copyUnmodified: true }
+		)
 	],
 	mode: 'production'
 }
