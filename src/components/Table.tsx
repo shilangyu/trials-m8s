@@ -1,11 +1,6 @@
 import { observer } from 'mobx-preact'
 import { FunctionComponent, h } from 'preact'
 import { store, Title } from '../store'
-import { arrayToSubmissions } from '../util'
-
-interface Props {
-	rows: string[][]
-}
 
 const validate: {
 	[key in keyof ISubmission]: (val: ISubmission[key]) => boolean
@@ -18,8 +13,8 @@ const validate: {
 	extraInfo: () => true
 }
 
-const Table: FunctionComponent<Props> = observer(({ rows }) => {
-	const submissions = arrayToSubmissions(rows).filter(sub =>
+const Table: FunctionComponent = observer(() => {
+	const submissions = store.submissions.filter(sub =>
 		Object.entries(sub).every(([key, val]) => (validate as any)[key](val))
 	)
 
@@ -41,7 +36,6 @@ const Table: FunctionComponent<Props> = observer(({ rows }) => {
 			</thead>
 			<tbody>
 				{submissions
-
 					.filter(sub =>
 						String(sub[store.searchContext])
 							.toLowerCase()
