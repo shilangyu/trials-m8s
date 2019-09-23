@@ -1,4 +1,5 @@
 dist
 node_modules
-public/bundle.js
+public/*
+!public/index.html
 stats.json

@@ -1,5 +1,6 @@
 import { resolve } from 'path'
 import { Configuration } from 'webpack'
+import { GenerateSW } from 'workbox-webpack-plugin'
 
 const config: Configuration = {
 	entry: './src/index.tsx',
@@ -23,6 +24,12 @@ const config: Configuration = {
 		filename: 'bundle.js',
 		path: resolve(__dirname, 'public')
 	},
+	plugins: [
+		new GenerateSW({
+			clientsClaim: true,
+			skipWaiting: true
+		})
+	],
 	mode: 'production'
 }
 
