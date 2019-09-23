@@ -41,6 +41,7 @@ const config: Configuration = {
 			}
 		}),
 		new GenerateSW({
+			include: [/\.js$/, /\.html/, 'favicon.ico'],
 			clientsClaim: true,
 			skipWaiting: true
 		})
