@@ -3,9 +3,7 @@ import { useEffect } from 'preact/hooks'
 import Filters from './Filters'
 import Table from './Table'
 
-interface Props {}
-
-const App: FunctionComponent<Props> = () => {
+const App: FunctionComponent = () => {
 	useEffect(() => M.AutoInit(), [])
 
 	return (

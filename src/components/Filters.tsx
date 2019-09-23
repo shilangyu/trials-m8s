@@ -1,9 +1,8 @@
+import { observer } from 'mobx-preact'
 import { FunctionComponent, h } from 'preact'
 import { store, Title } from '../store'
 
-interface Props {}
-
-const Filters: FunctionComponent<Props> = () => {
+const Filters: FunctionComponent = observer(() => {
 	const headers = Object.keys(Title) as (keyof ISubmission)[]
 
 	return (
@@ -50,6 +49,6 @@ const Filters: FunctionComponent<Props> = () => {
 			</div>
 		</div>
 	)
-}
+})
 
 export default Filters
