@@ -19,7 +19,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: npm install and build
       run: |
-        npx pnpm ci
+        npx pnpm i
         npx pnpm run build
       env:
         CI: true
