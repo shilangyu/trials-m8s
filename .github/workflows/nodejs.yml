@@ -20,6 +20,6 @@ jobs:
     - name: npm install and build
       run: |
         npx pnpm ci
-        npx pnpm run build --if-present
+        npx pnpm run build
       env:
         CI: true
