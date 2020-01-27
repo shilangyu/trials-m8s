@@ -34,7 +34,7 @@
 	},
 	"dependencies": {
 		"materialize-css": "^1.0.0",
-		"mobx": "^5.15.2",
+		"mobx": "^5.15.3",
 		"mobx-preact": "^3.0.0",
 		"preact": "^10.2.1"
 	}
