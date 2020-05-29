@@ -46,10 +46,13 @@ const config: Configuration = {
 			clientsClaim: true,
 			skipWaiting: true
 		}),
-		new CopyWebpackPlugin(
-			['public/manifest.json', 'public/icon-192.png', 'public/icon-512.png'],
-			{ copyUnmodified: true }
-		)
+		new CopyWebpackPlugin({
+			patterns: [
+				'public/manifest.json',
+				'public/icon-192.png',
+				'public/icon-512.png'
+			]
+		})
 	],
 	mode: 'production'
 }
