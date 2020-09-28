@@ -36,6 +36,6 @@
 		"materialize-css": "^1.0.0",
 		"mobx": "^5.15.7",
 		"mobx-preact": "^3.0.0",
-		"preact": "^10.4.8"
+		"preact": "^10.5.2"
 	}
 }
