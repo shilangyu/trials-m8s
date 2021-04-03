@@ -1,4 +1,3 @@
-import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 import CopyWebpackPlugin from 'copy-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import { resolve } from 'path'
@@ -25,10 +24,10 @@ const config: Configuration = {
 	},
 	output: {
 		filename: 'bundle.js',
-		path: resolve(__dirname, 'dist')
+		path: resolve(__dirname, 'dist'),
+		clean: true
 	},
 	plugins: [
-		new CleanWebpackPlugin(),
 		new HtmlWebpackPlugin({
 			favicon: 'public/favicon.ico',
 			template: 'public/index.html',
