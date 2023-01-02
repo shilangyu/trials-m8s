@@ -19,7 +19,7 @@
 		"@types/workbox-webpack-plugin": "^5.1.8",
 		"concurrently": "^7.5.0",
 		"copy-webpack-plugin": "^11.0.0",
-		"css-loader": "^6.7.2",
+		"css-loader": "^6.7.3",
 		"html-webpack-plugin": "^5.5.0",
 		"live-server": "^1.2.2",
 		"style-loader": "^3.3.1",
